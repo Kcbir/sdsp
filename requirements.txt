@@ -1,0 +1,22 @@
+# Core (required)
+numpy>=1.26
+scipy>=1.11
+
+# Exact MILP solver. Needs a licence; academic licences are free.
+# The alpha-vector DP in sdsp/policies/exact.py is exact and much faster, so
+# gurobipy is only needed to reproduce the MILP cross-check.
+gurobipy>=11.0
+
+# SDP certificates (sdsp/switching.py: jsr_upper_cqlf, sdp_lower_bound).
+# Optional: without it the eigenvalue and determinant bounds still work and are
+# still certified, you just lose the Lyapunov-based bounds.
+cvxpy>=1.5
+clarabel>=0.9
+
+# Learned policies (sdsp/policies/rl.py, imitation.py).
+# torch_geometric is deliberately NOT used -- the GAT is implemented from
+# scratch so this runs anywhere torch runs, including CPU-only boxes.
+torch>=2.4
+
+# Figures
+matplotlib>=3.8
